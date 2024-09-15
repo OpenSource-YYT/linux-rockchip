@@ -505,6 +505,7 @@
 };
 
 /* VARIOUS */
+/* FAN CONTROL */
 
 &threshold {
 	temperature = <60000>;
@@ -580,9 +581,10 @@
 	};
 };
 
+/* CAN */
 &can2 {
     pinctrl-names = "default";
-    pinctrl-0 = <&can2m1_pins>;
+    pinctrl-0 = <&can2m0_pins>;
     status = "okay";
 };
 
@@ -802,6 +804,7 @@
 	tx_delay = <0x43>;
 
 	phy-handle = <&rgmii_phy1>;
+	phy-supply = <&vcc_3v3_s3>;
 };
 
 
@@ -888,7 +891,7 @@
 &uart5 {
         status = "okay";
         pinctrl-names = "default";
-        pinctrl-0 = <&uart5m1_xfer >;
+        pinctrl-0 = <&uart5m1_xfer>;
 };
 
 &pinctrl {
@@ -941,11 +944,8 @@
 			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_down>;
 		};
 	};
-    /* GPIO KEYS */
-	gpio-key {
-        key1_pin: key1-pin {
-            rockchip,pins = <1 RK_PC0 RK_FUNC_GPIO &pcfg_pull_up>;
-        };
+    /* GPIO */
+	gpio {
 		leds_gpio: leds-gpio {
 			rockchip,pins = <0 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
 		};
