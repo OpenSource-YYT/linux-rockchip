@@ -199,13 +199,12 @@
 
 &combphy0_ps {
 	status = "okay";
-	phy-supply = <&vcca_3v3_s0>;
 };
 
 &combphy1_psu {
 	status = "okay";
-	phy-supply = <&vcca_3v3_s0>;
 };
+
 
 &cpu_b0 {
 	cpu-supply = <&vdd_cpu_big_s0>;
@@ -248,8 +247,6 @@
 	cec-enable;
 	enable-gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_HIGH>;
 	rockchip,sda-falling-delay-ns = <360>;
-	avdd-0v9-supply = <&vdda0v75_hdmi_s0>;
-	avdd-1v8-supply = <&vcca_1v8_s0>;
 };
 
 &hdmi_in_vp0 {
@@ -258,7 +255,6 @@
 
 &hdptxphy_hdmi {
 	status = "okay";
-	phy-supply = <&vdda_0v85_s0>;
 };
 
 &i2c0 {
@@ -322,10 +318,6 @@
 	status = "okay";
 	pinctrl-0 = <&pcie0_reset_gpio>;
 	reset-gpios = <&gpio2 RK_PB4 GPIO_ACTIVE_HIGH>;
-	rockchip,init-delay-ms = <100>;
-	rockchip,skip-scan-in-resume;
-	rockchip,skip-hw-retry;
-	rockchip,wait-for-link-ms = <1000>;
 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
 
 	pcie@0,0 {
@@ -342,12 +334,8 @@
 
 &pcie1 {
 	status = "okay";
-	pinctrl-names = "default";
 	pinctrl-0 = <&pcie1_reset_gpio>;
 	reset-gpios = <&gpio0 RK_PC7 GPIO_ACTIVE_HIGH>;
-	rockchip,skip-scan-in-resume;
-	rockchip,skip-hw-retry;
-	rockchip,wait-for-link-ms = <1000>;
 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
 
 	pcie@0,0 {
@@ -502,7 +490,6 @@
 		| RKPM_VCCIO3_RET_EN
 		)
 	>;
-	rockchip,regulator-on-before-mem = <&vdd_npu_s0>;
 };
 
 &route_hdmi {
@@ -544,7 +531,6 @@
 	non-removable;
 	pinctrl-names = "default";
 	pinctrl-0 = <&sdmmc1m0_bus4 &sdmmc1m0_clk &sdmmc1m0_cmd>;
-	sd-uhs-sdr50;
 	sd-uhs-sdr104;
 	status = "okay";
 };
@@ -575,7 +561,6 @@
 
 &u2phy0 {
 	status = "okay";
-	phy-supply = <&vcca_3v3_s0>;
 };
 
 &u2phy0_otg {
@@ -595,12 +580,10 @@
 
 &usbdp_phy {
 	status = "okay";
-	phy-supply = <&vcca_3v3_s0>;
 };
 
 &usbdp_phy_u3 {
 	status = "okay";
-	phy-supply = <&vcca_3v3_s0>;
 };
 
 &usb_drd0_dwc3 {
@@ -615,7 +598,6 @@
 
 &vop {
 	status = "okay";
-	vop-supply = <&vdd_logic_s0>;
 };
 
 &vop_mmu {
