@@ -2668,7 +2668,7 @@
 		interrupts = <GIC_SPI 349 IRQ_TYPE_LEVEL_HIGH>,
 			<GIC_SPI 348 IRQ_TYPE_LEVEL_HIGH>,
 			<GIC_SPI 347 IRQ_TYPE_LEVEL_HIGH>;
-		interrupt-names = "gpu", "mmu", "job";
+		interrupt-names = "job", "mmu", "gpu";
 
 		upthreshold = <40>;
 		downdifferential = <10>;
