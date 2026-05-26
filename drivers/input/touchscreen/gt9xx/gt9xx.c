@@ -2696,6 +2696,16 @@ static int goodix_ts_probe(struct i2c_client *client, const struct i2c_device_id
 		gtp_change_x2y = TRUE;
 		gtp_x_reverse = FALSE;
 		gtp_y_reverse = FALSE;
+	} else if (val == 9112) {
+		/* Youyeetoo R1 1024x600 landscape: chip already reports
+		 * raw coordinates aligned with the panel orientation, so
+		 * no software swap or invert is needed.
+		 */
+		m89or101 = FALSE;
+		bgt911 = TRUE;
+		gtp_change_x2y = FALSE;
+		gtp_x_reverse = FALSE;
+		gtp_y_reverse = FALSE;
 	} else if (val == 970) {
 		m89or101 = FALSE;
 		bgt911 = FALSE;
