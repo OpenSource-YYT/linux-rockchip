@@ -202,8 +202,8 @@
 				reg = <0x5d>;
 				touch-gpio = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
 				reset-gpio = <&gpio1 RK_PB3 GPIO_ACTIVE_HIGH>;
-				max-x = <3580>;
-				max-y = <2870>;
+				max-x = <1024>;
+				max-y = <600>;
 				tp-size = <9112>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&touch_gpio>;

@@ -2697,12 +2697,13 @@ static int goodix_ts_probe(struct i2c_client *client, const struct i2c_device_id
 		gtp_x_reverse = FALSE;
 		gtp_y_reverse = FALSE;
 	} else if (val == 9112) {
-		/* Youyeetoo R1 1024x600 landscape: chip already reports
-		 * raw coordinates aligned with the panel orientation, so
-		 * no software swap or invert is needed.
+		/* Youyeetoo R1 1024x600 landscape 7" panel: route the GT911
+		 * to the WGJ10187 GT910 1024x600 cfg blob (gtp_dat_7 via
+		 * bgt910) so the chip reports raw coordinates 1:1 with the
+		 * panel pixels. No software swap or invert is needed.
 		 */
 		m89or101 = FALSE;
-		bgt911 = TRUE;
+		bgt910 = TRUE;
 		gtp_change_x2y = FALSE;
 		gtp_x_reverse = FALSE;
 		gtp_y_reverse = FALSE;
