@@ -2,6 +2,7 @@
 /plugin/;
 
 #include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/interrupt-controller/irq.h>
 #include <dt-bindings/pinctrl/rockchip.h>
 #include <dt-bindings/display/drm_mipi_dsi.h>
 
@@ -197,14 +198,18 @@
 			pinctrl-names = "default";
 			pinctrl-0 = <&i2c3m2_xfer>;
 
-			gt9xx: gt9xx@5d {
-				compatible = "goodix,gt9xx";
+			gt911: touchscreen@5d {
+				compatible = "goodix,gt911";
 				reg = <0x5d>;
-				touch-gpio = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
-				reset-gpio = <&gpio1 RK_PB3 GPIO_ACTIVE_HIGH>;
-				max-x = <1024>;
-				max-y = <600>;
-				tp-size = <911>;
+				interrupt-parent = <&gpio4>;
+				interrupts = <RK_PB2 IRQ_TYPE_LEVEL_LOW>;
+				irq-gpios = <&gpio4 RK_PB2 GPIO_ACTIVE_HIGH>;
+				reset-gpios = <&gpio1 RK_PB3 GPIO_ACTIVE_HIGH>;
+				touchscreen-size-x = <1024>;
+				touchscreen-size-y = <600>;
+				touchscreen-inverted-y;
+				AVDD28-supply = <&vcc3v3_lcd_n>;
+				VDDIO-supply = <&vcc3v3_lcd_n>;
 				pinctrl-names = "default";
 				pinctrl-0 = <&touch_gpio>;
 				status = "okay";
